@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>curd application</title>
+        <style>
+            table,tr,th,td{
+                border: 5px solid brown;
+            }
+            table{
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Registration form </h1>
+        <form onsubmit="saveData()">
+        <label>name</label>
+        <input type="text" value="" id="name"  />
+        <label>email</label>
+        <input type="text" value="" id="email"  />
+        <label>Age</label>
+        <input type="text" value="" id="age"  />
+        <input type="submit" value="save" />
+        </form>
+        <br>
+        <br>
+        <table class="cr">
+            <tr>
+                <th>first name</th>
+                <th>email</th>
+                <th>age</th>
+            </tr>
+            <tbody id="mainData">
+
+            </tbody>
+        </table>
+        <script>
+            function saveData(){
+                event.preventDefault();
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let age = document.getElementById("age").value;
+
+                console.log(name,email,age);
+                
+                let tableData = document.getElementById("mainData")
+                tableData.innerHTML = tableData.innerHTML + `
+                <tr>
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td>${age}</td>
+                    </tr>
+                `
+                reset();
+
+                function reset(){
+                    document.getElementById("name").value="";
+                    document.getElementById("email").value="";
+                    document.getElementById("age").value="";
+                }
+
+          
+            }
+        </script>
+    </body>
+</html>
